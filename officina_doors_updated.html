@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officina Doors - Pizzeria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#cc0001',
+                        'brand-dark-red': '#7f0000',
+                        'brand-cream': '#f3eddd'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .banner-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(204,0,1,0.9));
+        }
+        .hero-parallax {
+            background-image: url('https://i.postimg.cc/j2YVNdGp/55-OFFICINA-1920-x-1000-px.png');
+            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-parallax {
+                background: none;
+                height: 100vh;
+                width: 100vw;
+                position: relative;
+                left: 0;
+                right: 0;
+                overflow: hidden;
+            }
+            
+            .hero-parallax::before {
+                content: '';
+                position: absolute;
+                top: 50vh;
+                top: 50dvh;
+                left: 50%;
+                width: 100vw;
+                height: 100vh;
+                height: 100dvh;
+                background-image: url('https://i.ibb.co/zWDjqSM9/cusa.png');
+                background-attachment: scroll;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+        }
+        .hero-overlay {
+            background: rgba(127, 0, 0, 0.3);
+        }
+        .logo-officina-doors {
+            position: fixed;
+            left: 50%;
+            top: 50vh;
+            top: 50dvh;
+            transform: translate(-50%, -50%);
+            width: 360.2px;
+            height: 360.2px;
+            z-index: 30;
+            transition: none;
+        }
+        .logo-officina-doors img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-officina-doors {
+                width: 60vw;
+                height: 60vw;
+                max-width: 650px;
+                max-height: 650px;
+                position: fixed;
+                left: 50%;
+                top: 50vh;
+                top: 50dvh;
+                transform: translate(-50%, -50%);
+                margin: 0;
+                padding: 0;
+                z-index: 30;
+            }
+        }
+
+        .hero-fixed-image {
+            position: fixed;
+            left: 50%;
+            top: 50vh;
+            top: 50dvh;
+            transform: translate(-50%, -50%);
+            width: 360.2px;
+            height: 360.2px;
+            z-index: 25;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
+
+        .hero-fixed-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .hero-fixed-image {
+                width: 60vw;
+                height: 60vw;
+                max-width: 650px;
+                max-height: 650px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Banner App Download -->
+    <div id="appBanner" class="fixed inset-0 z-50 flex items-center justify-center banner-overlay">
+        <div class="bg-white rounded-3xl p-4 md:p-8 max-w-4xl mx-4 shadow-2xl">
+            <div class="grid lg:grid-cols-2 gap-4 md:gap-8 items-center">
+                <!-- Left side - Content -->
+                <div class="text-center lg:text-left">
+                    <div class="mb-4 md:mb-8">
+                        <h2 class="heading-font text-2xl md:text-4xl font-bold text-gray-800 mb-2 md:mb-4">Benvenuto da OFFICINA DOORS</h2>
+                        <p class="text-base md:text-xl text-gray-600 leading-relaxed">Scarica WyDelivery per vedere il menu completo aggiornato e ordinare da asporto!</p>
+                    </div>
+                    
+                    <div class="flex justify-center lg:justify-start space-x-3 md:space-x-6 mb-4 md:mb-8">
+                        <a href="https://apps.apple.com" target="_blank" class="hover:scale-105 transition-transform duration-200">
+                            <img src="https://i.postimg.cc/Kj6g6Y9v/14.png" alt="Scarica su App Store" class="h-12 md:h-16 w-auto" onerror="this.style.display='none';">
+                        </a>
+                        
+                        <a href="https://play.google.com" target="_blank" class="hover:scale-105 transition-transform duration-200">
+                            <img src="https://i.postimg.cc/G2pYYV8r/13.png" alt="Scarica su Google Play" class="h-12 md:h-16 w-auto" onerror="this.style.display='none';">
+                        </a>
+                    </div>
+                    
+                    <button onclick="closeAppBanner()" class="text-brand-red hover:text-brand-dark-red font-medium underline text-base md:text-lg">
+                        Continua sul sito
+                    </button>
+                </div>
+                
+                <!-- Right side - iPhone Image -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <img src="https://i.postimg.cc/0QG3M6wh/app.png" alt="Officina Doors App su iPhone" class="w-48 md:w-80 h-auto drop-shadow-2xl" onerror="this.style.display='none';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="navbar" class="bg-white shadow-lg absolute top-0 left-0 right-0 z-40 transition-opacity duration-300 hidden md:block">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <img src="https://i.postimg.cc/9Fdf0pX1/logodoors.png" alt="OFFICINA DOORS" class="h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <h1 class="heading-font text-3xl font-bold text-brand-red hidden">OFFICINA DOORS</h1>
+                <nav class="flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-brand-red transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-brand-red transition-colors">Chi Siamo</a>
+                    <a href="#location" class="text-gray-700 hover:text-brand-red transition-colors">Dove Siamo</a>
+                    <a href="#contact" class="text-gray-700 hover:text-brand-red transition-colors">Contatti</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Officina Doors -->
+    <div id="logoOfficinaDoors" class="logo-officina-doors">
+        <img src="https://i.postimg.cc/c1Mjt6j7/logoback.png" alt="OFFICINA DOORS Logo" onerror="this.style.display='none';">
+    </div>
+
+    <!-- Hero Fixed Image -->
+    <div id="heroFixedImage" class="hero-fixed-image">
+        <img src="https://i.postimg.cc/RZ5RCk5D/Orari.png" alt="Fixed Hero Image" onerror="this.style.display='none';">
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-parallax flex items-center justify-center">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center text-white">
+            <h1 class="heading-font text-6xl font-bold mb-6 opacity-0">OFFICINA DOORS</h1>
+            <p class="text-xl opacity-0">Autentica Pizza Napoletana</p>
+        </div>
+    </section>
+
+    <!-- Sezione Logo con Schede Animate -->
+    <section class="py-16 md:py-32 bg-white min-h-screen flex items-center">
+        <div class="container mx-auto px-6 relative">
+            <!-- Desktop Layout -->
+            <div class="hidden md:flex items-center justify-center relative max-w-7xl mx-auto">
+                <!-- Scheda Sinistra - Menu -->
+                <div id="leftCard" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full opacity-0 transition-all duration-1000 ease-out">
+                    <div class="bg-gradient-to-br from-brand-cream to-orange-50 rounded-lg p-8 shadow-2xl max-w-sm border-l-4 border-brand-red">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-2xl font-bold text-brand-red mb-4">Sapori Autentici</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Dalla tradizionale <strong>pinsa romana</strong> alla <strong>pizza toscana</strong>, 
+                                dalle <strong>focacce</strong> croccanti ai <strong>fritti artigianali</strong>, 
+                                fino ai nostri <strong>dolci della casa</strong>. 
+                                Un viaggio di gusto che conquista ogni palato.
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h4 class="font-semibold text-gray-800 mb-4">Scarica WyDelivery</h4>
+                            <div class="flex justify-center space-x-3">
+                                <a href="https://apps.apple.com" target="_blank" class="hover:scale-105 transition-transform duration-200">
+                                    <img src="https://i.postimg.cc/Kj6g6Y9v/14.png" alt="Scarica su App Store" class="h-12 w-auto" onerror="this.style.display='none';">
+                                </a>
+                                
+                                <a href="https://play.google.com" target="_blank" class="hover:scale-105 transition-transform duration-200">
+                                    <img src="https://i.postimg.cc/G2pYYV8r/13.png" alt="Scarica su Google Play" class="h-12 w-auto" onerror="this.style.display='none';">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spazio per Logo Fluttuante -->
+                <div id="logoSection" class="flex items-center justify-center flex-shrink-0 z-20" style="width: 360.2px; height: 360.2px;">
+                    <!-- Il logo fluttuante si posizionerÃ  qui -->
+                </div>
+                
+                <!-- Scheda Destra - Prenotazioni -->
+                <div id="rightCard" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full opacity-0 transition-all duration-1000 ease-out">
+                    <div class="bg-gradient-to-br from-red-50 to-brand-cream rounded-lg p-8 shadow-2xl max-w-sm border-r-4 border-brand-red">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-2xl font-bold text-brand-red mb-4">Riserva un Tavolo</h3>
+                            <p class="text-gray-700 mb-6">
+                                Non perdere l'occasione di gustare le nostre specialitÃ . 
+                                Prenota ora il tuo posto nella nostra accogliente pizzeria!
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <a href="https://wa.me/393793045341?text=Ciao! Vorrei prenotare un tavolo da OFFICINA DOORS" 
+                               target="_blank" 
+                               class="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors w-full">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                                </svg>
+                                Prenota su WhatsApp
+                            </a>
+                            
+                            <a href="tel:+393793045341" 
+                               class="flex items-center justify-center bg-brand-red hover:bg-brand-dark-red text-white px-6 py-3 rounded-xl font-semibold transition-colors w-full">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                Chiama Ora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Layout -->
+            <div class="md:hidden flex flex-col items-center space-y-8">
+                <!-- Scheda Menu Mobile -->
+                <div id="topCardMobile" class="w-full max-w-sm opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+                    <div class="bg-gradient-to-br from-brand-cream to-orange-50 rounded-lg p-6 shadow-2xl border-l-4 border-brand-red">
+                        <div class="text-center mb-4">
+                            <h3 class="heading-font text-xl font-bold text-brand-red mb-3">Sapori Autentici</h3>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                Dalla tradizionale <strong>pinsa romana</strong> alla <strong>pizza toscana</strong>, 
+                                dalle <strong>focacce</strong> croccanti ai <strong>fritti artigianali</strong>, 
+                                fino ai nostri <strong>dolci della casa</strong>.
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h4 class="font-semibold text-gray-800 mb-3 text-sm">Scarica WyDelivery</h4>
+                            <div class="flex justify-center space-x-2">
+                                <a href="https://apps.apple.com" target="_blank" class="hover:scale-105 transition-transform duration-200">
+                                    <img src="https://i.postimg.cc/Kj6g6Y9v/14.png" alt="Scarica su App Store" class="h-10 w-auto" onerror="this.style.display='none';">
+                                </a>
+                                
+                                <a href="https://play.google.com" target="_blank" class="hover:scale-105 transition-transform duration-200">
+                                    <img src="https://i.postimg.cc/G2pYYV8r/13.png" alt="Scarica su Google Play" class="h-10 w-auto" onerror="this.style.display='none';">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spazio per Logo Mobile -->
+                <div id="logoSectionMobile" class="flex items-center justify-center flex-shrink-0 z-20" style="width: 437.2px; height: 437.2px;">
+                    <!-- Il logo fluttuante si posizionerÃ  qui su mobile -->
+                </div>
+
+                <!-- Scheda Prenotazioni Mobile -->
+                <div id="bottomCardMobile" class="w-full max-w-sm opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+                    <div class="bg-gradient-to-br from-red-50 to-brand-cream rounded-lg p-6 shadow-2xl border-r-4 border-brand-red">
+                        <div class="text-center mb-4">
+                            <h3 class="heading-font text-xl font-bold text-brand-red mb-3">Riserva un Tavolo</h3>
+                            <p class="text-gray-700 mb-4 text-sm">
+                                Non perdere l'occasione di gustare le nostre specialitÃ . 
+                                Prenota ora il tuo posto!
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <a href="https://wa.me/393793045341?text=Ciao! Vorrei prenotare un tavolo da OFFICINA DOORS" 
+                               target="_blank" 
+                               class="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl font-semibold transition-colors w-full text-sm">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                                </svg>
+                                Prenota su WhatsApp
+                            </a>
+                            
+                            <a href="tel:+393793045341" 
+                               class="flex items-center justify-center bg-brand-red hover:bg-brand-dark-red text-white px-4 py-2 rounded-xl font-semibold transition-colors w-full text-sm">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                Chiama Ora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative min-h-screen flex items-center" style="background-image: url('https://i.postimg.cc/66GYT4d3/4.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="heading-font text-4xl font-bold text-brand-cream mb-12">Il Laboratorio del Gusto</h3>
+                <div class="bg-brand-cream bg-opacity-40 backdrop-blur-sm rounded-2xl p-12 shadow-2xl border-4 border-brand-cream">
+                    <p class="text-xl text-gray-800 leading-relaxed font-medium">
+                        Nata dalla passione per la vera tradizione culinaria italiana, OFFICINA DOORS Ã¨ molto piÃ¹ di una pizzeria. Qui in Via del Palco 62, nel cuore di Prato, abbiamo creato un laboratorio del gusto dove ogni sera trasformiamo ingredienti selezionati in autentiche opere d'arte gastronomiche. La nostra pinsa toscana, dalle radici antiche romane, si unisce alle pizze sottili croccanti e ai nostri celebri fritti dorati per offrire un viaggio sensoriale unico che celebra l'eccellenza della cucina italiana.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="heading-font text-4xl font-bold text-brand-red text-center mb-12">Dove Siamo</h3>
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <div class="bg-white rounded-2xl p-8 shadow-lg">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-6">Vieni a Trovarci</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-6 h-6 text-brand-red mt-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Indirizzo</p>
+                                        <p class="text-gray-600">Via del Palco 62, 59100 Prato, Italia</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-6 h-6 text-brand-red mt-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Orari di Apertura</p>
+                                        <p class="text-gray-600">Lun-Dom: 18:00 - 24:00</p>
+                                        <p class="text-gray-600">Chiuso il MartedÃ¬</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-6 h-6 text-brand-red mt-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Telefono</p>
+                                        <p class="text-gray-600">+39 379 304 5341</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-6 h-6 text-brand-red mt-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Email</p>
+                                        <p class="text-gray-600">Officinadors@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.1234567890!2d11.0962!3d43.8777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDUyJzM5LjciTiAxMcKwMDUnNDYuMyJF!5e0!3m2!1sit!2sit!4v1234567890"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Booking Section -->
+    <section id="contact" class="py-20 bg-brand-cream">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="heading-font text-4xl font-bold text-brand-red mb-8">Prenota il Tuo Tavolo</h3>
+                <p class="text-xl text-gray-600 mb-12">
+                    Non perdere l'occasione di gustare le nostre specialitÃ . Prenota ora il tuo tavolo!
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <a href="https://wa.me/393793045341?text=Ciao! Vorrei prenotare un tavolo da OFFICINA DOORS" 
+                       target="_blank" 
+                       class="bg-brand-dark-red bg-opacity-20 border-4 border-brand-dark-red hover:bg-brand-dark-red hover:bg-opacity-40 text-brand-dark-red p-8 rounded-2xl transition-all group">
+                        <div class="flex items-center justify-center mb-4">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 text-brand-dark-red">Prenota su WhatsApp</h4>
+                        <p class="text-brand-red">Messaggio diretto e veloce</p>
+                        <div class="mt-4 text-sm opacity-75 text-brand-dark-red">Clicca per aprire WhatsApp</div>
+                    </a>
+                    
+                    <a href="tel:+393793045341" 
+                       class="bg-brand-dark-red bg-opacity-20 border-4 border-brand-dark-red hover:bg-brand-dark-red hover:bg-opacity-40 text-brand-dark-red p-8 rounded-2xl transition-all group">
+                        <div class="flex items-center justify-center mb-4">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 text-brand-dark-red">Chiamaci Direttamente</h4>
+                        <p class="text-brand-red">Parla con il nostro staff</p>
+                        <div class="mt-4 text-sm opacity-75 text-brand-dark-red">+39 379 304 5341</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark-red text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h4 class="heading-font text-3xl font-bold mb-4">OFFICINA DOORS</h4>
+                <p class="text-red-200 mb-6">Pinsa toscana, pizza sottile e specialitÃ  tradizionali nel cuore di Prato</p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-red-300 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-red-300 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="border-t border-red-600 pt-6">
+                    <p class="text-red-200">&copy; 2024 OFFICINA DOORS. Tutti i diritti riservati.</p>
+                    <p class="text-red-300 text-sm mt-2">Crafted by Web4Lazy - Powered by Github</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function closeAppBanner() {
+            document.getElementById('appBanner').style.display = 'none';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Logo scroll animation with hero section and cards animation
+        let ticking = false;
+        let cardsAnimated = false;
+        let logoHasReachedDestination = false;
+        let mobileCardsAnimated = false;
+        let animationsCompleteMobile = false;
+        
+        function updateLogoPosition() {
+            const logo = document.getElementById('logoOfficinaDoors');
+            const heroFixedImage = document.getElementById('heroFixedImage');
+            const heroSection = document.getElementById('home');
+            const logoSection = document.getElementById('logoSection');
+            const logoSectionMobile = document.getElementById('logoSectionMobile');
+            const leftCard = document.getElementById('leftCard');
+            const rightCard = document.getElementById('rightCard');
+            const topCardMobile = document.getElementById('topCardMobile');
+            const bottomCardMobile = document.getElementById('bottomCardMobile');
+            const navbar = document.getElementById('navbar');
+            
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const viewportCenter = viewportHeight / 2;
+            const isMobile = window.innerWidth < 768;
+            
+            // Se animazioni mobile completate, non fare nulla
+            if (isMobile && animationsCompleteMobile) {
+                return;
+            }
+            
+            // Hero section calculations
+            const heroHeight = heroSection.offsetHeight;
+            const heroTop = heroSection.offsetTop;
+            const heroBottom = heroTop + heroHeight;
+            
+            // Logo section calculations
+            const currentLogoSection = isMobile ? logoSectionMobile : logoSection;
+            const logoSectionRect = currentLogoSection.getBoundingClientRect();
+            const logoSectionTop = logoSectionRect.top + scrollY;
+            const logoSectionCenter = logoSectionTop + (currentLogoSection.offsetHeight / 2);
+            
+            // Calculate when logo should start moving and when it reaches destination
+            const logoStartMoving = heroBottom;
+            const logoDestinationScroll = logoSectionCenter - viewportCenter;
+            
+            // Navbar visibility control
+            if (scrollY <= 100) {
+                navbar.style.opacity = '1';
+                navbar.style.pointerEvents = 'auto';
+            } else {
+                navbar.style.opacity = '0';
+                navbar.style.pointerEvents = 'none';
+            }
+            
+            if (isMobile) {
+                // Mobile cards animation
+                const mobileCardsStartPoint = logoSectionTop - (viewportHeight * 0.8);
+                const mobileCardsEndPoint = logoSectionTop - (viewportHeight * 0.3);
+                const mobileCardsProgress = Math.max(0, Math.min(1, (scrollY - mobileCardsStartPoint) / (mobileCardsEndPoint - mobileCardsStartPoint)));
+                
+                if (scrollY <= 200) {
+                    topCardMobile.style.transform = 'translateY(32px)';
+                    topCardMobile.style.opacity = '0';
+                    bottomCardMobile.style.transform = 'translateY(32px)';
+                    bottomCardMobile.style.opacity = '0';
+                    mobileCardsAnimated = false;
+                } else if (mobileCardsProgress > 0 || mobileCardsAnimated) {
+                    const translateY = Math.max(0, 32 - (mobileCardsProgress * 32));
+                    const opacity = Math.max(mobileCardsProgress, mobileCardsAnimated ? 1 : 0);
+                    
+                    topCardMobile.style.transform = `translateY(${translateY}px)`;
+                    topCardMobile.style.opacity = opacity;
+                    bottomCardMobile.style.transform = `translateY(${translateY}px)`;
+                    bottomCardMobile.style.opacity = opacity;
+                    
+                    if (mobileCardsProgress >= 1) {
+                        mobileCardsAnimated = true;
+                    }
+                }
+            } else {
+                // Desktop cards animation (invariata)
+                const cardsStartPoint = logoSectionTop - (viewportHeight * 1.2);
+                const cardsEndPoint = logoSectionTop - (viewportHeight * 0.5);
+                const cardsProgress = Math.max(0, Math.min(1, (scrollY - cardsStartPoint) / (cardsEndPoint - cardsStartPoint)));
+                
+                if (scrollY <= 200) {
+                    leftCard.style.transform = 'translateY(-50%) translateX(-100%)';
+                    leftCard.style.opacity = '0';
+                    rightCard.style.transform = 'translateY(-50%) translateX(100%)';
+                    rightCard.style.opacity = '0';
+                    cardsAnimated = false;
+                } else if (cardsProgress > 0 || cardsAnimated) {
+                    const finalLeftTranslateX = Math.max(-20, -100 + (cardsProgress * 80));
+                    const finalRightTranslateX = Math.min(20, 100 - (cardsProgress * 80));
+                    const finalOpacity = Math.max(cardsProgress, cardsAnimated ? 1 : 0);
+                    
+                    leftCard.style.transform = `translateY(-50%) translateX(${finalLeftTranslateX}px)`;
+                    leftCard.style.opacity = finalOpacity;
+                    rightCard.style.transform = `translateY(-50%) translateX(${finalRightTranslateX}px)`;
+                    rightCard.style.opacity = finalOpacity;
+                    
+                    if (cardsProgress >= 1) {
+                        cardsAnimated = true;
+                    }
+                }
+            }
+            
+            // Logo positioning logic
+            if (scrollY < logoStartMoving) {
+                logo.style.position = 'fixed';
+                logo.style.left = '50%';
+                logo.style.top = '50%';
+                logo.style.transform = 'translate(-50%, -50%)';
+                logo.style.zIndex = '30';
+                logoHasReachedDestination = false;
+            } else if (scrollY >= logoDestinationScroll || logoHasReachedDestination) {
+                // Logo reached destination
+                logo.style.position = 'absolute';
+                logo.style.left = '50%';
+                logo.style.top = logoSectionCenter + 'px';
+                logo.style.transform = 'translate(-50%, -50%)';
+                logo.style.zIndex = '10';
+                logoHasReachedDestination = true;
+                
+                // NUOVO: Su mobile, mostra immagine fissa e blocca animazioni
+                if (isMobile && !animationsCompleteMobile) {
+                    heroFixedImage.style.opacity = '1';
+                    animationsCompleteMobile = true;
+                }
+            } else {
+                const moveProgress = (scrollY - logoStartMoving) / (logoDestinationScroll - logoStartMoving);
+                const smoothProgress = Math.min(1, moveProgress);
+                const easeProgress = 0.5 * (1 - Math.cos(smoothProgress * Math.PI));
+                
+                const startY = viewportCenter;
+                const endY = logoSectionCenter - scrollY;
+                const currentY = startY + (endY - startY) * easeProgress;
+                
+                logo.style.position = 'fixed';
+                logo.style.left = '50%';
+                logo.style.top = currentY + 'px';
+                logo.style.transform = 'translate(-50%, -50%)';
+                logo.style.zIndex = '20';
+            }
+            
+            logo.style.opacity = '1';
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateLogoPosition);
+                ticking = true;
+            }
+        }
+        
+        // Inizializza la posizione del logo
+        updateLogoPosition();
+        
+        window.addEventListener('scroll', requestTick);
+        window.addEventListener('resize', requestTick);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97def5a561648ae6',t:'MTc1NzY3NTQzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+                
