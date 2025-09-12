@@ -46,11 +46,7 @@
         
         @media (max-width: 767px) {
             .hero-parallax {
-                background-image: url('https://i.ibb.co/zWDjqSM9/cusa.png');
-                background-attachment: scroll;
-                background-position: center 45%;
-                background-repeat: no-repeat;
-                background-size: cover;
+                background: none;
                 height: 100vh;
                 width: 100vw;
                 display: flex;
@@ -59,6 +55,22 @@
                 position: relative;
                 left: 0;
                 right: 0;
+                overflow: hidden;
+            }
+            
+            .hero-parallax::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url('https://i.ibb.co/zWDjqSM9/cusa.png');
+                background-attachment: scroll;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: 1;
             }
         }
         .hero-overlay {
@@ -87,11 +99,12 @@
                 max-width: 650px;
                 max-height: 650px;
                 position: fixed;
-                left: 50vw;
-                top: 50vh;
+                left: 50%;
+                top: 50%;
                 transform: translate(-50%, -50%);
                 margin: 0;
                 padding: 0;
+                z-index: 30;
             }
         }
     </style>
@@ -625,5 +638,5 @@
         window.addEventListener('scroll', requestTick);
         window.addEventListener('resize', requestTick);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97dee8c9f6598ae6',t:'MTc1NzY3NDkxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97deed6fc4168ae6',t:'MTc1NzY3NTEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
