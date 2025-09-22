@@ -278,29 +278,13 @@
         </article>
       </div>
 
-      <!-- Galleria: desktop in una riga -->
-      <div class="hidden md:grid grid-cols-4 gap-4 mt-8">
-        <img src="https://i.postimg.cc/ZKQxX1LL/9.png" alt="Galleria 1" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-        <img src="https://i.postimg.cc/7Ln7PcSd/10.png" alt="Galleria 2" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-        <img src="https://i.postimg.cc/Kzs1Ryjq/11.png" alt="Galleria 3" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-        <img src="https://i.postimg.cc/2506KfQk/12.png" alt="Galleria 4" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-      </div>
 
-      <!-- Carosello mobile: una immagine alla volta -->
-      <div class="md:hidden mt-6 overflow-x-auto no-scrollbar">
-        <div class="flex gap-4 px-2 snap-x snap-mandatory">
-          <img src="https://i.postimg.cc/ZKQxX1LL/9.png" alt="Galleria 1" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-          <img src="https://i.postimg.cc/7Ln7PcSd/10.png" alt="Galleria 2" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-          <img src="https://i.postimg.cc/Kzs1Ryjq/11.png" alt="Galleria 3" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-          <img src="https://i.postimg.cc/2506KfQk/12.png" alt="Galleria 4" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-        </div>
-      </div>
 
     </div>
   </section>
 
   <!-- Sezione combinata: Laboratorio del Gusto + Impasti, cotture, passione -->
-  <section id="gusto-impasti" class="relative overflow-hidden md:h-screen" style="background-image:url('https://i.postimg.cc/bJwTQtkN/OFFICINA2.png'); background-size:cover; background-position:center; background-attachment:fixed;">
+  <section id="gusto-impasti" class="relative overflow-visible md:min-h-screen" style="background-image:url('https://i.postimg.cc/bJwTQtkN/OFFICINA2.png'); background-size:cover; background-position:center; background-attachment:fixed;">
     <div class="absolute inset-0 z-0 bg-black/40"></div>
 
     <!-- Livelli parallax -->
@@ -335,6 +319,27 @@
                 <li>• Fritti artigianali croccanti</li>
                 <li>• Dolci della casa</li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galleria in fondo alla sezione: desktop in riga, mobile carosello -->
+        <div class="mt-8">
+          <!-- Desktop: 4 in una riga, angoli vivi, senza bordo -->
+          <div class="hidden md:grid grid-cols-4 gap-4">
+            <img src="https://i.postimg.cc/ZKQxX1LL/9.png" alt="Galleria 1" class="w-full aspect-[4/3] object-cover rounded-none" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+            <img src="https://i.postimg.cc/7Ln7PcSd/10.png" alt="Galleria 2" class="w-full aspect-[4/3] object-cover rounded-none" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+            <img src="https://i.postimg.cc/Kzs1Ryjq/11.png" alt="Galleria 3" class="w-full aspect-[4/3] object-cover rounded-none" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+            <img src="https://i.postimg.cc/2506KfQk/12.png" alt="Galleria 4" class="w-full aspect-[4/3] object-cover rounded-none" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+          </div>
+
+          <!-- Mobile: carosello una immagine alla volta, angoli vivi, senza bordo -->
+          <div class="md:hidden mt-4 overflow-x-auto no-scrollbar">
+            <div class="flex gap-4 px-2 snap-x snap-mandatory">
+              <img src="https://i.postimg.cc/ZKQxX1LL/9.png" alt="Galleria 1" class="flex-none w-[86vw] aspect-[4/3] object-cover rounded-none snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <img src="https://i.postimg.cc/7Ln7PcSd/10.png" alt="Galleria 2" class="flex-none w-[86vw] aspect-[4/3] object-cover rounded-none snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <img src="https://i.postimg.cc/Kzs1Ryjq/11.png" alt="Galleria 3" class="flex-none w-[86vw] aspect-[4/3] object-cover rounded-none snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <img src="https://i.postimg.cc/2506KfQk/12.png" alt="Galleria 4" class="flex-none w-[86vw] aspect-[4/3] object-cover rounded-none snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
             </div>
           </div>
         </div>
@@ -524,5 +529,5 @@
       }, true);
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982fbc6cc1f1bac4',t:'MTc1ODUyMjQ0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982fc7e40676bac4',t:'MTc1ODUyMjkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
