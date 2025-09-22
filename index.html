@@ -226,7 +226,7 @@
     </div>
   </section>
 
-  <!-- SEZIONE 2: Two Feature Cards -->
+  <!-- SEZIONE 2: Two Feature Cards + Galleria -->
   <section id="menu" class="relative bg-[var(--light)] text-[#120c11]">
     <div class="wrap py-10 md:py-16 px-2 sm:px-0">
       <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-stretch">
@@ -250,8 +250,8 @@
           </div>
         </article>
 
-        <!-- Logo centrale -->
-        <div class="flex items-center justify-center px-2 md:py-4">
+        <!-- Logo centrale (mobile più grande e con spazio sopra/sotto) -->
+        <div class="flex items-center justify-center px-2 md:py-4 my-5 sm:my-0">
           <img src="https://i.postimg.cc/c1Mjt6j7/logoback.png" alt="Officina Doors - marchio" class="h-56 sm:h-32 md:h-[300px] w-auto max-w-full object-contain" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" />
         </div>
 
@@ -277,6 +277,25 @@
           </div>
         </article>
       </div>
+
+      <!-- Galleria: desktop in una riga -->
+      <div class="hidden md:grid grid-cols-4 gap-4 mt-8">
+        <img src="https://i.postimg.cc/ZKQxX1LL/9.png" alt="Galleria 1" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+        <img src="https://i.postimg.cc/7Ln7PcSd/10.png" alt="Galleria 2" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+        <img src="https://i.postimg.cc/Kzs1Ryjq/11.png" alt="Galleria 3" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+        <img src="https://i.postimg.cc/2506KfQk/12.png" alt="Galleria 4" class="w-full h-44 object-cover rounded-lg border-4 border-[#cb0101]" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+      </div>
+
+      <!-- Carosello mobile: una immagine alla volta -->
+      <div class="md:hidden mt-6 overflow-x-auto no-scrollbar">
+        <div class="flex gap-4 px-2 snap-x snap-mandatory">
+          <img src="https://i.postimg.cc/ZKQxX1LL/9.png" alt="Galleria 1" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+          <img src="https://i.postimg.cc/7Ln7PcSd/10.png" alt="Galleria 2" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+          <img src="https://i.postimg.cc/Kzs1Ryjq/11.png" alt="Galleria 3" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+          <img src="https://i.postimg.cc/2506KfQk/12.png" alt="Galleria 4" class="flex-none w-[86vw] h-56 object-cover rounded-lg border-4 border-[#cb0101] snap-center" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -505,5 +524,5 @@
       }, true);
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982f7fb6940fee75',t:'MTc1ODUxOTk1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982fbc6cc1f1bac4',t:'MTc1ODUyMjQ0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
