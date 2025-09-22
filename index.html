@@ -17,6 +17,8 @@
       --leaf:#2ecc71; --flour:#f8efe6;
     }
     html, body { height: 100%; }
+    *, *::before, *::after { box-sizing: border-box; }
+    img, video { max-width: 100%; height: auto; display: block; }
     body { overflow-x: hidden; background: linear-gradient(160deg,var(--bg1),var(--bg2)); color: #faf7f5; padding-bottom: env(safe-area-inset-bottom); }
     .font-display { font-family: "Libre Baskerville", serif; }
     .font-sans { font-family: "Glacial Indifference", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; }
@@ -58,7 +60,7 @@
 
     /* Intermediate tablets / large phones */
     @media (max-width: 900px) {
-      .wrap { width: min(1100px, 94vw); }
+      .wrap { width: min(1100px, 96vw); }
       h2 { font-size: clamp(1.8rem, 5.5vw, 2.5rem); line-height: 1.15; }
       h3 { font-size: clamp(1.3rem, 4.2vw, 1.7rem); }
       #divider .w-full { height: 80px !important; }
@@ -67,7 +69,7 @@
 
     @media (max-width: 768px) {
       /* Comfortable paddings on mobile */
-      .wrap { width: min(1200px, 94vw); }
+      .wrap { width: min(1200px, 96vw); }
       header .wrap { padding-left: 4vw; padding-right: 4vw; }
 
       /* Scale big headings down slightly for small screens */
@@ -117,6 +119,22 @@
       #menu img[alt*="Icona"] { width: 52px; height: 52px; }
       p { font-size: 0.95rem; }
     }
+
+    /* Landscape fixes for small-height devices */
+    @media (orientation: landscape) and (max-height: 480px) {
+      .wrap { width: 98vw; }
+      header .wrap { padding-left: 2vw; padding-right: 2vw; }
+      /* reduce vertical paddings so content fits */
+      #gusto-impasti .wrap, section[style*="OFFICINA2"] .wrap { padding-top: 6vh; padding-bottom: 6vh; }
+      /* center and constrain any full-width blocks */
+      #contatti .md\:hidden { margin-inline: auto; width: 96vw; max-width: 720px; }
+      /* prevent any accidental overflow */
+      body { overflow-x: hidden; }
+    }
+
+    /* Utility: hide native scrollbar for carousels only */
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
   </style>
 </head>
 <body class="font-sans grain">
@@ -529,5 +547,5 @@
       }, true);
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982fc7e40676bac4',t:'MTc1ODUyMjkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982fd542f163b75e',t:'MTc1ODUyMzQ1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
