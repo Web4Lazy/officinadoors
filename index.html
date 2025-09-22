@@ -115,6 +115,16 @@
 
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
+      /* Mobile: riduci spazio tra navbar e hero */
+    @media (max-width: 640px) {
+      .hero-wrap { min-height: 86vh; padding-top: 10px; padding-bottom: 24px; }
+      header.sticky + section .hero-wrap { padding-top: 8px; }
+    }
+
+    /* Footer credit: font più piccolo su mobile */
+    @media (max-width: 640px) {
+      [aria-label="credits"] .wrap { font-size: 10px; }
+    }
   </style>
 </head>
 <body class="font-sans grain">
@@ -133,7 +143,7 @@
         <a href="#contatti" class="hidden md:inline-block font-semibold tracking-wide hover:text-white">Info e Prenotazioni</a>
 
         <div class="flex items-center gap-2 ml-2">
-          <a href="https://www.facebook.com/profile.php?id=61579347602217&locale=it_IT" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=.&locale=it_IT" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20" aria-label="Facebook">
             <img src="https://i.postimg.cc/CMWwYY4P/2.png" alt="Facebook" class="h-5 w-5" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
           </a>
           <a href="https://www.instagram.com/officina.doors/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20" aria-label="Instagram">
@@ -194,7 +204,7 @@
       </svg>
     </div>
 
-    <div class="wrap relative z-20 min-h-[92vh] flex items-center justify-center text-center mx-auto px-3 sm:px-0 py-10">
+    <div class="wrap hero-wrap relative z-20 min-h-[92vh] flex items-center justify-center text-center mx-auto px-3 sm:px-0 py-10">
       <div class="w-full max-w-none border-[6px] border-white/80 bg-white/10 backdrop-blur-sm rounded-none p-6 md:p-10">
         <span class="inline-flex items-center justify-center gap-2 text-xs tracking-widest uppercase text-white/80 bg-white/10 border border-white/20 px-3 py-1 rounded-full">
           Via del Palco 62, 59100 Prato, Italia
@@ -515,5 +525,5 @@
       }, true);
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98305a0735bced63',t:'MTc1ODUyODg5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98306c1107e7ed4b',t:'MTc1ODUyOTYzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
